@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="beanExample" class="com.example.docspringio.Example" a>
+       <property name="someClass" ref="beanSomeClass"/>
+        <property name="anotherClass" ref="beanAnotherClass"/>
+        <property name="name" value="John Doe"/>
+        <property name="age" value="12"/>
+    </bean>
+
+    <bean id="beanSomeClass" class="com.example.docspringio.SomeClass">
+        <property name="accounts">
+            <map>
+                <entry key="one" value="9.99"/>
+                <entry key="two" value="4.92"/>
+                <entry key="one" value="1.21"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="beanAnotherClass" class="com.example.docspringio.AnotherClass"
+          c:stringArgument="argument one"
+          c:intArgument="1488"/>
+
+</beans>

@@ -1,0 +1,41 @@
+spring:
+  data:
+    rest:
+      base-path: /api
+
+    profiles: prod
+    rabbitmq:
+      host: rabbit.tacocloud.com
+      port: 5673
+      username: tacoweb
+      password: l3tm31n
+
+      template:
+        exchange: tacocloud.orders
+        routing-key: kitchens.central
+        receive-timeout: 30000
+
+        kafka:
+          bootstrap-servers:
+            - kafka.tacocloud.com:9092
+            template:
+              default-topic: tacocloud.orders.topic
+
+
+
+  jms:
+     template:
+     default-destination: tacocloud.order.queue
+
+server:
+  port: 8443
+  ssl:
+    key-store: C:\Users\Монстр 4.0\IdeaProjects\taco-cloud\mykeys.jks
+    key-store-password: letmein
+    key-password: letmein
+
+taco:
+  orders:
+    pageSize: 10
+
+
